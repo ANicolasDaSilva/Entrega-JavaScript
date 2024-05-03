@@ -46,16 +46,34 @@ for (let i = 1; i <= 10; i++) {
 
 }
 
-
 //FUNCTION
 
 let num1 = Number(prompt("Ingrese un número que quiera sumar: "));
 let num2 = Number(prompt("Ingrese otro número que quiera sumar: "));
 
-function sumar (num1, num2) {
-    return  num1 + num2;
+function sumar(num1, num2) {
+    return num1 + num2;
 }
 
-let resultado = sumar (num1, num2);
+let resultado = sumar(num1, num2);
 console.log(resultado);
 alert("El resultado es: " + resultado);
+
+
+//OBJETOS y clases
+
+function Zoologico(nombre, habitat, dieta) {
+    this.nombre = nombre;
+    this.habitat = habitat;
+    this.dieta = dieta;
+}
+
+const hipopotamo = new Zoologico(`Hipopotamo`, "sabana", "herbívoros");
+var leon = new Zoologico(`Leon`, `sabana`, `carnivoro`);
+const cebra = new Zoologico("Cebra", "sabana", "herbívoros");
+const jirafa = new Zoologico("Jirafa", "sabana", "herbívoros");
+const pinguino = new Zoologico("Pinguino", "antártida", "peces");
+
+console.log(leon);
+console.log(cebra);
+console.log(pinguino);
