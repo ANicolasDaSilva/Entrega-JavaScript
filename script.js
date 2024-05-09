@@ -60,20 +60,32 @@ console.log(resultado);
 alert("El resultado es: " + resultado);
 
 
-//OBJETOS y clases
+//OBJETOS + FUNCIONES + ARRAY
 
-function Zoologico(nombre, habitat, dieta) {
+//constructor para un animal
+function Animal(nombre, habitat, dieta) {
     this.nombre = nombre;
     this.habitat = habitat;
     this.dieta = dieta;
 }
 
-const hipopotamo = new Zoologico(`Hipopotamo`, "sabana", "herbívoros");
-var leon = new Zoologico(`Leon`, `sabana`, `carnivoro`);
-const cebra = new Zoologico("Cebra", "sabana", "herbívoros");
-const jirafa = new Zoologico("Jirafa", "sabana", "herbívoros");
-const pinguino = new Zoologico("Pinguino", "antártida", "peces");
+//array para almacenar los objetos animale
+const zoologico = [];
 
-console.log(leon);
-console.log(cebra);
-console.log(pinguino);
+//agregar animales al array del zoológico
+let monos = zoologico.push(new Animal('Monos', 'Selva', 'Omnívoro'));
+let hipopotamo = zoologico.push(new Animal(`Hipopotamo`, `sabana`, `Herbívoros`));
+let leon = zoologico.push(new Animal(`Leon`, `Sabana`, `Carnivoro`));
+let cebra = zoologico.push(new Animal(`Cebra`, `Sabana`, `Herbívoros`));
+let jirafa = zoologico.push(new Animal(`Jirafa`, `Sabana`, `Herbívoros`));
+let pinguino = zoologico.push(new Animal(`Pinguino`, `Antártida`, `Peces`));
+
+//función para mostrar todos los animales del zoológico
+function mostrarAnimales() {
+    zoologico.forEach(function (animal) {
+        console.log('Nombre: ' + animal.nombre + ', Habitat: ' + animal.habitat + ', Dieta: ' + animal.dieta);
+    });
+}
+
+//función para mostrar los animales
+mostrarAnimales();
