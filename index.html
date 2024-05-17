@@ -1,12 +1,51 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto</title>
     <script src="script.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+    <main>
+        <h1 style="margin-top: 2em;"> ZOOLOGICO VIRTUAL </h1>
+    <label>Elija que animal quiere conocer: <br>
+        <select class="zoo" name="zoo">
+            <option value=""> Elija un animal... </option>
+            <option value="mono"> Mono </option>
+            <option value="hipopotamo"> Hipopotamo </option>
+            <option value="leon"> Leon </option>
+            <option value="cebra"> Cebra </option>
+            <option value="jirafa"> Jirafa </option>
+            <option value="pinguino"> Pingüino </option>
+        </select>
+    </label>
+    <div class="eleccion"></div>
+        
+        
+        
+        <h2> Contacto </h2>
+        <form class="formulario"></form>
+            <label for="nombre"> Nombre </label>
+            <input type="text" id="nombre">
+
+            <label for="apellido"> Apellido </label>
+            <input type="text" id="apellido">
+
+            <label for="email">Email</label>
+            <input type="email" name="" id="email">
+            
+            <label for="dudas"> Consultas </label>
+            <textarea name="" id="miTextarea" cols="30" rows="10" placeholder=""></textarea>
+
+            <button id="inputSubmit" type="submit" value="Enviar"> Enviar </button>
+            <button class="boton" type="reset"> Restablecer </button>
+        </form>
+    </main>
 </body>
+
 </html>

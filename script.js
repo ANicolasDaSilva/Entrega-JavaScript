@@ -1,5 +1,6 @@
 // CONDICIONAL:
 
+
 let edad = Number(prompt("Bienvenido pero antes, introduzca su edad: "));
 
 
@@ -89,3 +90,57 @@ function mostrarAnimales() {
 
 //función para mostrar los animales
 mostrarAnimales();
+
+
+//  EVENTO
+
+//  CHANGE
+
+const selectElement = document.querySelector(".zoo");
+const eleccion = document.querySelector(".eleccion");
+
+selectElement.addEventListener("change", (event) => {
+    eleccion.innerText = `Elegiste: ${event.target.value}. Esta es una breve descripcion` ;
+});
+
+//  DOM
+
+document.addEventListener('DOMContentLoaded', function() {
+    let form = document.getElementById('formulario');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        var nombre = document.getElementById('nombre').value;
+        var email = document.getElementById('email').value;
+    });
+});
+
+
+//  KEYPRESS
+const textarea = document.getElementById('miTextarea');
+textarea.addEventListener("keypress", function (event) {
+    console.log("Tipeó: " + event.key);
+});
+
+let miFormulario = document.getElementById('formulario');
+miFormulario.addEventListener("submit", validarFormulario);
+
+function validarFormulario(e) {
+  e.preventDefault();
+  let inputSubmit = document.getElementById('inputSubmit').value;
+  console.log(inputSubmit);
+
+  if (inputSubmit === "") {
+    alert("El formulario no puede enviarse vacío!");
+  } else {
+    console.log("Consulta enviada, estaremos en contacto pronto");
+  }
+}
+
+
+// STORAGE
+
+// JSON
+
+//OA 1Y2 + W
