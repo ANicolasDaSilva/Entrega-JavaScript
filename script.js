@@ -1,146 +1,81 @@
-// CONDICIONAL:
+//OA 1Y2 -------------------------------------------------------
+//CONDICIONAL + Operador
+  
+function verificarEdad() {
+  const edadInput = document.getElementById('edad');
+  const edad = parseInt(edadInput.value);
 
-
-let edad = Number(prompt("Bienvenido pero antes, introduzca su edad: "));
-
-
-if (edad >= 18) {
-    console.log("Es mayor, puede proseguir.");
-    alert("Sos legal, puede pasar.");
-
-} else if (edad < 18) {
-    console.log("Es menor de edad, precaucion");
-    alert("Sos menor mi rey. Sos bienvenido igual.");
-} else {
-    console.log("es un robot");
+  edad > 18  ? alert ("Bienvenido, puede pasar sin problemas.") : alert ("CUIDADO, sos menor entra bajo tu propia responsabilidad.");
 }
 
-//CONDICIONAL
+//DOM ------------------------------------------------------------------------
 
-let contraseña = Number(prompt("Ingrese la contraseña: "));
-
-if (contraseña == 123) {
-    console.log("Introdujo bien el numero para ingresar.");
-    alert("Contraseña correcta. avanza a la proxima puerta.")
-} else {
-    console.log("introdujo mal la contraseña, posible impostor.");
-    alert("Contraseña incorrecta. JUIRA.");
-    alert("Mentira, son todos bienvenidos.")
+const recomendacion = {
+  piramides: [""],
+  hombreLuna: [""],
+  aliens: [""],
+  masones: [""],
+  cupula: [""],
+  fantasma [""];
 }
 
-//BUCLE WHILE
+//unción para actualizar las recomendaciones basadas en el misterio seleccionado
+function actualizarRecomendacion(misterio) {
+  const listaConspi = document.getElementById("lista-conspi");
+  const conspi = recomendacion[misterio];
 
-let contraseña2 = prompt("Última puerta: ¿Cual es mi fruta favorita?");
+  //construir el HTML para la lista de conspi
+  let listaHTML = "";
+  conspi.forEach((conspi) => {
+    listaHTML += `<li> ${conspi} </li>`;
+  });
 
-while (contraseña2 != "naranja") {
-
-    contraseña2 = prompt("Intentelo de nuevo.");
+  //actualizar el innerHTML de la lista de conspi
+  listaConspi.innerHTML = listaHTML;
 }
 
-//BUCLE FOR
+//evento que se dispara cuando el usuario cambia el misterio seleccionado
+document
+  .getElementById("seleccion-conspi")
+  .addEventListener("change", function (event) {
+    actualizarRecomendacion(event.target.value);
+  });
 
-let ingreseNumero = parseInt(prompt("¡Perfecto! Ahora si, ¿que tabla quiere aprender hoy?"));
+//OBJETOS + FUNCIONES + ARRAY --------------------------
 
-for (let i = 1; i <= 10; i++) {
-    let resultado = ingreseNumero * i;
-    document.write(`${ingreseNumero} x ${i} = ${resultado} <br>`);
+const baseDeDatos = [
+  { id: 1, nombre: 'DOCE PUERTAS', precio: 17432, imagen: './img/doce-puertas-piramides.jpg' },
+  { id: 2, nombre: 'Hombre en la Luna', precio: 2500, imagen: './img/hombre-luna.jpg' },
+  { id: 3, nombre: 'Aliens', precio: 4500, imagen: './img/extraterrestre.jpg' },
+  { id: 4, nombre: 'Tierra plana', precio:  2341, imagen: './img/domo.jpg' },
+  { id: 5, nombre: 'Fantasmas', precio: 1233, imagen: './img/fantasma.jpg'},
+  { id: 6, nombre: 'Masones', precio: 453, imagen: './img/masones.jpg'},
+];
 
-}
+let carrito = [];
+let inicioCarrito = 0;
 
-//FUNCTION
-
-let num1 = Number(prompt("Ingrese un número que quiera sumar: "));
-let num2 = Number(prompt("Ingrese otro número que quiera sumar: "));
-
-function sumar(num1, num2) {
-    return num1 + num2;
-}
-
-let resultado = sumar(num1, num2);
-console.log(resultado);
-alert("El resultado es: " + resultado);
-
-
-//OBJETOS + FUNCIONES + ARRAY
-
-//constructor para un animal
-function Animal(nombre, habitat, dieta) {
-    this.nombre = nombre;
-    this.habitat = habitat;
-    this.dieta = dieta;
-}
-
-//array para almacenar los objetos animale
-const zoologico = [];
-
-//agregar animales al array del zoológico
-let monos = zoologico.push(new Animal('Monos', 'Selva', 'Omnívoro'));
-let hipopotamo = zoologico.push(new Animal(`Hipopotamo`, `sabana`, `Herbívoros`));
-let leon = zoologico.push(new Animal(`Leon`, `Sabana`, `Carnivoro`));
-let cebra = zoologico.push(new Animal(`Cebra`, `Sabana`, `Herbívoros`));
-let jirafa = zoologico.push(new Animal(`Jirafa`, `Sabana`, `Herbívoros`));
-let pinguino = zoologico.push(new Animal(`Pinguino`, `Antártida`, `Peces`));
-
-//función para mostrar todos los animales del zoológico
-function mostrarAnimales() {
-    zoologico.forEach(function (animal) {
-        console.log('Nombre: ' + animal.nombre + ', Habitat: ' + animal.habitat + ', Dieta: ' + animal.dieta);
-    });
-}
-
-//función para mostrar los animales
-mostrarAnimales();
-
-
-//  EVENTO
-
-//  CHANGE
-
-const selectElement = document.querySelector(".zoo");
-const eleccion = document.querySelector(".eleccion");
-
-selectElement.addEventListener("change", (event) => {
-    eleccion.innerText = `Elegiste: ${event.target.value}. Esta es una breve descripcion` ;
+// para cargar el carrito desde localStorage al iniciar
+document.addEventListener("DOMContentLoaded", () => {
+  AOS.init();
+  carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  obtenerProductos().then((productos) => {
+    mostrarProductos(productos);
+    actualizarCarrito();
+  });
 });
 
 //  DOM
-
-document.addEventListener('DOMContentLoaded', function() {
+  
+  document.addEventListener('DOMContentLoaded', function() {
     let form = document.getElementById('formulario');
-
+    
     form.addEventListener('submit', function(event) {
-        event.preventDefault();
+      event.preventDefault();
 
         var nombre = document.getElementById('nombre').value;
         var email = document.getElementById('email').value;
-    });
+      });
 });
 
 
-//  KEYPRESS
-const textarea = document.getElementById('miTextarea');
-textarea.addEventListener("keypress", function (event) {
-    console.log("Tipeó: " + event.key);
-});
-
-let miFormulario = document.getElementById('formulario');
-miFormulario.addEventListener("submit", validarFormulario);
-
-function validarFormulario(e) {
-  e.preventDefault();
-  let inputSubmit = document.getElementById('inputSubmit').value;
-  console.log(inputSubmit);
-
-  if (inputSubmit === "") {
-    alert("El formulario no puede enviarse vacío!");
-  } else {
-    console.log("Consulta enviada, estaremos en contacto pronto");
-  }
-}
-
-
-// STORAGE
-
-// JSON
-
-//OA 1Y2 + W

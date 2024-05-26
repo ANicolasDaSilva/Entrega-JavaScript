@@ -12,38 +12,66 @@
 
 <body>
     <main>
-        <h1 style="margin-top: 2em;"> ZOOLOGICO VIRTUAL </h1>
-    <label>Elija que animal quiere conocer: <br>
-        <select class="zoo" name="zoo">
-            <option value=""> Elija un animal... </option>
-            <option value="mono"> Mono </option>
-            <option value="hipopotamo"> Hipopotamo </option>
-            <option value="leon"> Leon </option>
-            <option value="cebra"> Cebra </option>
-            <option value="jirafa"> Jirafa </option>
-            <option value="pinguino"> Pingüino </option>
-        </select>
-    </label>
-    <div class="eleccion"></div>
-        
-        
-        
+
+        <h1>CONSPIRACIONES CONSPIRANOICAS</h1>
+        <div id="nombre-usuario">Bienvenido conspiranoico, pero antes introduce tu edad: </div>
+
+        <form>
+            <label for="edad">Introduce tu edad:</label>
+            <input type="number" id="edad">
+            <input type="button">
+        </form>
+
+        <label for="seleccion-conspi">Elija que tema quiere saber: <br>
+            <select class="conspi" id="seleccion-conspi">
+                <option value=""> Elija un tema... </option>
+                <option value="piramides"> Piramides </option>
+                <option value="hombre-luna"> El hombre y la Luna </option>
+                <option value="aliens"> Aliens </option>
+                <option value="masones"> Masones </option>
+                <option value="cupula"> Cúpula </option>
+                <option value="fantasmas"> Fantasmas </option>
+            </select>
+        </label>
+        <div class="eleccion"></div>
+
+        <ul id="lista-libros">
+            <!-- La lista de libros recomendados se actualizará aquí -->
+        </ul>
+
+        <div class="container">
+            <h2 class="my-4">Productos</h2>
+
+            <div id="productos" class="row">
+            </div>
+
+            <h2 class="my-4">Carrito</h2>
+            <div id="carrito" class="row">
+
+            </div>
+
+            <h3 id="totalCompra" class="my-4">Total: $0</h3>
+
+            <button id="finalizarCompra" class="btn btn-success my-4">Finalizar Compra</button>
+        </div>
+
+
         <h2> Contacto </h2>
         <form class="formulario"></form>
-            <label for="nombre"> Nombre </label>
-            <input type="text" id="nombre">
+        <label for="nombre"> Nombre </label>
+        <input type="text" id="nombre">
 
-            <label for="apellido"> Apellido </label>
-            <input type="text" id="apellido">
+        <label for="apellido"> Apellido </label>
+        <input type="text" id="apellido">
 
-            <label for="email">Email</label>
-            <input type="email" name="" id="email">
-            
-            <label for="dudas"> Consultas </label>
-            <textarea name="" id="miTextarea" cols="30" rows="10" placeholder=""></textarea>
+        <label for="email">Email</label>
+        <input type="email" name="" id="email">
 
-            <button id="inputSubmit" type="submit" value="Enviar"> Enviar </button>
-            <button class="boton" type="reset"> Restablecer </button>
+        <label for="dudas"> Consultas </label>
+        <textarea name="" id="miTextarea" cols="30" rows="10" placeholder=""></textarea>
+
+        <button id="inputSubmit" type="submit" value="Enviar"> Enviar </button>
+        <button class="boton" type="reset"> Restablecer </button>
         </form>
     </main>
 </body>
